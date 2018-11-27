@@ -1,7 +1,13 @@
 /* jumbrotron color */
-
+.jumbotron {
+    color: rgb(71, 223, 11);
+    background-color: darkblue;
+    text-align: center;
+}
 /* primary color table row, can code this in html if needed */
-
+.card-body {
+    border-color: rgb(49, 139, 223);
+}
 /* make app responsive-Bootrap has some responsive tables */
 
 /* Other styling to make the app look fine */
