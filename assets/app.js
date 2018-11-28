@@ -6,8 +6,10 @@
 //*********************************************** */
 
 //initialize firebase
+var mykey = configKey.apiKey;
+
  var config = {
-   apiKey: "AIzaSyA3qUG_vL56-yC-scIvdg8oo3vDbe6C8lc",
+   mykey,
    authDomain: "train-scheduler-4d643.firebaseapp.com",
    databaseURL: "https://train-scheduler-4d643.firebaseio.com",
     projectId: "train-scheduler-4d643",
