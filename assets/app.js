@@ -5,16 +5,16 @@
 //utilize firebase to store data
 //*********************************************** */
 
-// //initialize firebase
-// var config = {
-//     apiKey: "AIzaSyA3qUG_vL56-yC-scIvdg8oo3vDbe6C8lc",
-//     authDomain: "train-scheduler-4d643.firebaseapp.com",
-//     databaseURL: "https://train-scheduler-4d643.firebaseio.com",
-//     projectId: "train-scheduler-4d643",
-//     storageBucket: "train-scheduler-4d643.appspot.com",
-//     messagingSenderId: "240447997259"
-//   };
-//   firebase.initializeApp(config);
+//initialize firebase
+ var config = {
+   apiKey: "AIzaSyA3qUG_vL56-yC-scIvdg8oo3vDbe6C8lc",
+   authDomain: "train-scheduler-4d643.firebaseapp.com",
+   databaseURL: "https://train-scheduler-4d643.firebaseio.com",
+    projectId: "train-scheduler-4d643",
+    storageBucket: "train-scheduler-4d643.appspot.com",
+    messagingSenderId: "240447997259"
+ };
+ firebase.initializeApp(config);
 
   //create variable to reference the database.
 var database = firebase.database();
@@ -23,8 +23,10 @@ var database = firebase.database();
 
 var name = "";
 var dest = "";
+var freq = 0;
 var time = "";
-var freq = "";
+var away = 0;
+//function for current time
 
 //capture button click
 $("#userSubmit").on("click", function(event) {
@@ -35,7 +37,7 @@ $("#userSubmit").on("click", function(event) {
     dest = $("#destination").val().trim();
     freq = $("#frequencyMins").val().trim();
     time = $("#trainTime").val().trim();
-
+    
     // console.log(name);
     // console.log(dest);
     // console.log(time);
@@ -63,10 +65,10 @@ database.ref().on("child_added", function(snapshot) {
     var row = $('<tr>');
     var newName = $('<td>').text(sv.name);
     var newDest = $('<td>').text(sv.dest);
-    var newFreq = $('<td>').text(sv.rate);
+    var newFreq = $('<td>').text(sv.freq);
     var newTime = $('<td>').text(sv.time);
-
-    row.append(newName, newDest, newFreq, newTime);
+    var newAway = $('<td>').empty();
+    row.append(newName, newDest, newFreq, newTime, newAway);
     $("tbody").append(row);
 
 })
