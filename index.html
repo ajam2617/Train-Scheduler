@@ -46,67 +46,75 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <td>Ghost Train</td>
+                        <td>Charlotte, NC</td>
+                        <td>300</td>
+                        <td></td>
+                        <td></td>
 
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
+                        <td>Atomic Train</td>
+                        <td>Are 51</td>
+                        <td>51</td>
+                        <td></td>
+                        <td></td>
 
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <td>Texas Train</td>
+                        <td>Austin, TX</td>
+                        <td>4580</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <th scope="row">4</th>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <td>Seoul Train</td>
+                        <td>South Korea</td>
+                        <td>60</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <!-- "ADD TRAIN" form with 4 inputs [Train Name, Destination, First Train Time, Frequency min] and submit button -->
-        <div class="row">
+        <div class="table-responsive" id="addTrainDiv">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="tHeader">Add Train</th>
+                    </tr>
+                </thead>
+            </table>
             <div class="card mb-4">
-                <div class="card-body">
-                    Add Train
-                    <form>
-                        <div class="form-group">
-                            <label for="Train-Name">Train Name</label>
-                            <input type="text" class="form-control" id="trainName" placeholder="ChooChoo Train">
-                        </div>
-                        <div class="form-group">
-                            <label for="destination">Destination</label>
-                            <input type="text" class="form-control" id="destination" placeholder="Oregon">
-                        </div>
-                        <div class="form-group">
-                            <label for="time">First Train Time (HH:mm- military Time)</label>
-                            <input type="text" class="form-control" id="trainTime" placeholder="21:30">
-                        </div>
-                        <div class="form-group">
-                            <label for="frequencyMins">Frequency (min)</label>
-                            <input type="text" class="form-control" id="frequencyMins" placeholder="25">
-                        </div>
-                    </form>
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="Train-Name">Train Name</label>
+                        <input type="text" class="form-control" id="trainName" placeholder="ChooChoo Train">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="Oregon">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">First Train Time (HH:mm- military Time)</label>
+                        <input type="text" class="form-control" id="trainTime" placeholder="21:30">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequencyMins">Frequency (min)</label>
+                        <input type="text" class="form-control" id="frequencyMins" placeholder="25">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
             </div>
         </div>
+        <br>
 
     </div>
+    <br>
 
 </body>
 
