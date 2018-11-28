@@ -24,19 +24,28 @@ var database = firebase.database();
 var name = "";
 var dest = "";
 var freq = 0;
-var time = "";
+var firstTime = "";
 var away = 0;
 //function for current time
 
 //capture button click
 $("#userSubmit").on("click", function(event) {
+    //prevent page reload
     event.preventDefault();
 
+    // alert to fill in details in form box
+
+    if ($("#trainName").val().trim() === "" || 
+    $("#destination").val().trim() === "" ||
+    $("#frequencyMins").val().trim() === "" ||
+    $("#trainTime").val().trim() === "") {
+        alert("Please fill in all details to Add Train Form");
+    } else {
     //grab values from text boxes
     name = $("#trainName").val().trim();
     dest = $("#destination").val().trim();
     freq = $("#frequencyMins").val().trim();
-    time = $("#trainTime").val().trim();
+    firstTime = $("#trainTime").val().trim();
     
     // console.log(name);
     // console.log(dest);
@@ -48,8 +57,16 @@ $("#userSubmit").on("click", function(event) {
         name: name,
         dest: dest,
         freq: freq,
-        time: time,
+        firstTime: firstTime,
     });
+};
+//clears form data
+
+$("#trainName").val("");
+$("#destination").val("");
+$("#frequencyMins").val("");
+$("#trainTime").val("");
+
 });
 
 //function that takes firebase data and reflects on html
@@ -57,19 +74,19 @@ $("#userSubmit").on("click", function(event) {
 database.ref().on("child_added", function(snapshot) {
     var sv = snapshot.val();
 
-    console.log(sv.name);
-    console.log(sv.dest);
-    console.log(sv.freq);
-    console.log(sv.time);
-
+    // console.log(sv.name);
+    // console.log(sv.dest);
+    // console.log(sv.freq);
+    // console.log(sv.firstTime);
+    var currentTime = moment().format("LT")
     var row = $('<tr>');
     var newName = $('<td>').text(sv.name);
     var newDest = $('<td>').text(sv.dest);
     var newFreq = $('<td>').text(sv.freq);
-    var newTime = $('<td>').text(sv.time);
-    var newAway = $('<td>').empty();
+    var newTime = $('<td>').text(sv.FirstTime);
+    var newAway = $('<td>').empty().addClass("minAway");
     row.append(newName, newDest, newFreq, newTime, newAway);
     $("tbody").append(row);
-
+    $("#timer").text(currentTime);
 })
 

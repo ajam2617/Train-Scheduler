@@ -3,11 +3,11 @@
     color: rgb(71, 223, 11);
     background-color: darkblue;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 0px;
 }
 
 div.jumbotron {
-    height: 150px;
+    height: 180px;
 }
 /* primary color table row, can code this in html if needed */
 .tHeader {
