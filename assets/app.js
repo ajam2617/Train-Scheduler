@@ -84,7 +84,7 @@ var minAway = freq - tRemainder;
 var nextTrain = moment().add(minAway, "minutes");
 var nextArrival = moment(nextTrain).format("hh:mm");
 $('.minAway').text(nextTrain);
-$()
+
 }
 //function that takes firebase data and reflects on html
 //also adding math to "minutes away"
