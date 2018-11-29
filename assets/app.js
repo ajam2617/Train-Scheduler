@@ -25,6 +25,7 @@ var name = "";
 var dest = "";
 var freq = 0;
 var firstTime = "";
+var nextArrival = "";
 var away = 0;
 //function for current time
 
@@ -59,6 +60,13 @@ $("#userSubmit").on("click", function(event) {
         freq: freq,
         firstTime: firstTime,
     });
+
+    var firstTimeConverted = moment(firstTime, 'hh:mm').subtract(1, "years");
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    var tRemainder = diffTime % freq;
+    var minAway = freq - tRemainder;
+    var nextTrain = moment().add(minAway, "minutes");
+    var nextArrival = moment(nextTrain).format("hh:mm");
 };
 //clears form data
 
@@ -68,8 +76,18 @@ $("#frequencyMins").val("");
 $("#trainTime").val("");
 
 });
-
+function time () {
+var firstTimeConverted = moment(firstTime, 'hh:mm').subtract(1, "years");
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+var tRemainder = diffTime % freq;
+var minAway = freq - tRemainder;
+var nextTrain = moment().add(minAway, "minutes");
+var nextArrival = moment(nextTrain).format("hh:mm");
+$('.minAway').text(nextTrain);
+$()
+}
 //function that takes firebase data and reflects on html
+//also adding math to "minutes away"
 
 database.ref().on("child_added", function(snapshot) {
     var sv = snapshot.val();
@@ -78,15 +96,20 @@ database.ref().on("child_added", function(snapshot) {
     // console.log(sv.dest);
     // console.log(sv.freq);
     // console.log(sv.firstTime);
-    var currentTime = moment().format("LT")
     var row = $('<tr>');
     var newName = $('<td>').text(sv.name);
     var newDest = $('<td>').text(sv.dest);
     var newFreq = $('<td>').text(sv.freq);
-    var newTime = $('<td>').text(sv.FirstTime);
-    var newAway = $('<td>').empty().addClass("minAway");
+    var newTime = $('<td>');
+    var newAway = $('<td>').addClass("minAway");
+    time();
     row.append(newName, newDest, newFreq, newTime, newAway);
     $("tbody").append(row);
-    $("#timer").text(currentTime);
 })
+
+//function to display current time with seconds counter
+setInterval(function() {
+    var currentTime = moment().format("LTS");
+    $("#timer").html(currentTime);  
+}, 1000);
 
