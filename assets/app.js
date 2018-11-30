@@ -76,33 +76,25 @@ $("#frequencyMins").val("");
 $("#trainTime").val("");
 
 });
-function time () {
-var firstTimeConverted = moment(firstTime, 'hh:mm').subtract(1, "years");
-var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-var tRemainder = diffTime % freq;
-var minAway = freq - tRemainder;
-var nextTrain = moment().add(minAway, "minutes");
-var nextArrival = moment(nextTrain).format("hh:mm");
-$('.minAway').text(nextTrain);
-
-}
 //function that takes firebase data and reflects on html
 //also adding math to "minutes away"
 
 database.ref().on("child_added", function(snapshot) {
     var sv = snapshot.val();
 
-    // console.log(sv.name);
-    // console.log(sv.dest);
-    // console.log(sv.freq);
-    // console.log(sv.firstTime);
+    var firstTimeConverted = moment(sv.firstTime, "hh:mm").subtract(1, "years");
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    var tRemainder = diffTime % (sv.freq);
+    var minAway = (sv.freq) - tRemainder;
+    var nextTrain = moment().add(minAway, "minutes");
+
     var row = $('<tr>');
     var newName = $('<td>').text(sv.name);
     var newDest = $('<td>').text(sv.dest);
     var newFreq = $('<td>').text(sv.freq);
-    var newTime = $('<td>');
-    var newAway = $('<td>').addClass("minAway");
-    time();
+    var newTime = $('<td>').text(moment(nextTrain).format("LT"));
+    var newAway = $('<td>').text(minAway);
+    
     row.append(newName, newDest, newFreq, newTime, newAway);
     $("tbody").append(row);
 })
@@ -112,4 +104,11 @@ setInterval(function() {
     var currentTime = moment().format("LTS");
     $("#timer").html(currentTime);  
 }, 1000);
+
+//function to reload page
+
+setInterval(function() {
+    window.location.reload();
+    
+}, 60000);
 
