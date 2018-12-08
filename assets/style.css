@@ -20,6 +20,7 @@ div.jumbotron {
     border-style: solid;
     border-color: rgb(57, 149, 235);
     border-width: 3px;
+    width: 50%;
 }
 
 form {
@@ -29,6 +30,7 @@ form {
     padding-top: 0px;
     
 }
-/* make app responsive-Bootrap has some responsive tables */
 
-/* Other styling to make the app look fine */
+body {
+    background-image: url("assets/images/train-scheduler.jpg");   
+}
