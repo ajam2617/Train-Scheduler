@@ -1,7 +1,7 @@
 /* jumbrotron color */
 .jumbotron {
-    color: rgb(71, 223, 11);
-    background-color: darkblue;
+    color: rgb(223, 124, 11);
+    background-color: rgb(78, 23, 23);
     text-align: center;
     padding-top: 0px;
 }
@@ -11,16 +11,17 @@ div.jumbotron {
 }
 /* primary color table row, can code this in html if needed */
 .tHeader {
-    background-color: rgb(57, 149, 235);
+    background-color: rgb(78, 23, 23);
     font-weight: bold;
     color: white;
 }
 
 #addTrainDiv {
     border-style: solid;
-    border-color: rgb(57, 149, 235);
+    background-color: rgb(78, 23, 23);
     border-width: 3px;
     width: 50%;
+    background-color: white;
 }
 
 form {
@@ -31,6 +32,12 @@ form {
     
 }
 
+table {
+    background-color: white;
+}
+
 body {
-    background-image: url("assets/images/train-scheduler.jpg");   
+    background-image: url("../assets/images/train-scheduler.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;  
 }

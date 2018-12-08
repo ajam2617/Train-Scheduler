@@ -97,6 +97,11 @@ database.ref().on("child_added", function(snapshot) {
     
     row.append(newName, newDest, newFreq, newTime, newAway);
     $("tbody").append(row);
+    //function that reloads the page so that min away will display accurately
+    setInterval(function() {
+        location.reload();
+        
+    }, 60000);
 })
 
 //function to display current time with seconds counter
@@ -107,8 +112,5 @@ setInterval(function() {
 
 //function to reload page
 
-setInterval(function() {
-    window.location.reload();
-    
-}, 60000);
+
 
