@@ -1,8 +1,10 @@
-:train: # Train-Scheduler :train:
+:train: Train-Scheduler :train:
+
 Train schedule application that incorporates Firebase to host arrival and departure data. App will retrieve and manipulate this information with Moment.js. This website will provide up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station.
 Deployed site: https://ajam2617.github.io/Train-Scheduler/
 
-:nut_and_bolt: ## Getting Started :nut_and_bolt:
+:nut_and_bolt:  Getting Started :nut_and_bolt:
+
 Enter a train name, destination, first train time in *Military*, and frequency of the train in minutes. Example:
 * Money Train
 * Las Vegas, NV
@@ -10,7 +12,7 @@ Enter a train name, destination, first train time in *Military*, and frequency o
 * 21
 When the submit button is clicked, the information will populate, and a count down to the next arrival will begin and update every minute. 
 
-![buttonClick Code](/assets/images/button-click.JPG)
+<img src = "/assets/images/button-click.JPG" alt text = "Button Click Code" width = "250px" height = "250px">
 
 ![Handling Database Info](/assets/images/firebase_database.JPG)
 
