@@ -22,7 +22,7 @@ Below is the code to handle the database information and manipulation.
 
 Below is a look at the finished homepage with all functionality working. 
 
-<img src = "/assets/images/homepage.JPG" alt text = "Homepage" width = "400px" height = "500px">
+<img src = "/assets/images/homepage.JPG" alt text = "Homepage" width = "800px" height = "600px">
 
 ## :triumph: Issues :triumph:
 I could not quite get the countdown to the next train to work, at first. Definitely had issues with the format and the interval update. I did have all the theory correct, but I did not have my work organized in a way that was functional. I definitely feel more comfortable with the modulos and moment.js methods. The app is now working correctly as intended.
